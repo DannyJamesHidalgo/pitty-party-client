@@ -5,6 +5,7 @@ import { Login } from "../components/auth/Login.jsx"
 import Home from "../components/Home"
 import { Register } from '../components/auth/Register.jsx'
 import { DogDetails } from '../components/DogDetails.jsx'
+import { AdoptionApplicationForm } from '../components/ApplicationForm.jsx'
 
 
 export const ApplicationViews = () => {
@@ -43,6 +44,7 @@ export const ApplicationViews = () => {
                 <Route path="/">
                 <Route index element={<Home />}/>
                 <Route path='dogs/:id' element={<DogDetails />}/>
+                <Route path='application/:dogId' element={<AdoptionApplicationForm/>}/>
 
                 <Route/>
                 
