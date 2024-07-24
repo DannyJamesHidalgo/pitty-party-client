@@ -31,7 +31,7 @@ export const DogDetails =()=>{
                     <p className='text-gray-700 text-base'>Weight: {dog.weight}lb</p>
                     <div className='px-10 pt-8 pb-6'>
                         {/* Example action button */}
-                        <button onClick={()=>navigate(`/application/dogId=${dog.id}`)}  className='inline-block bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition-all duration-150 ease-in-out transform hover:scale-110'>
+                        <button onClick={()=>navigate(`/application/${dog.id}`)}  className='inline-block bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition-all duration-150 ease-in-out transform hover:scale-110'>
                                 Apply to adopt here! 
                         </button>
                             </div>
