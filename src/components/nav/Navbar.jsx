@@ -1,37 +1,52 @@
-import { NavLink, useNavigate } from "react-router-dom"
-import "./Navbar.css"
+import { useState } from 'react';
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const NavBar = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
+
     return (
-        <ul className="navbar pb-10">
-            <li className="navbar__item pl-10">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/allrocks"}>All Rocks</NavLink>
-            </li>
-            <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/create"}>Collect a Rock</NavLink>
-            </li>
-            <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/mine"}>My Rocks</NavLink>
-            </li>
-            {
-                (localStorage.getItem("rock_token") !== null) ?
-                    <li className="navbar__item">
-                        <button className="underline text-blue-600 hover:text-purple-700"
-                            onClick={() => {
-                                localStorage.removeItem("rock_token")
-                                navigate('/login')
-                            }}
-                        >Logout</button>
-                    </li> :
-                    <>
-                        <li className="navbar__item">
-                            <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/login"}>Login</NavLink>
-                        </li>
-                        <li className="navbar__item">
-                            <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/register"}>Register</NavLink>
-                        </li>
-                    </>
-            }        </ul>
-    )
-}
+        <nav className="bg-gray-800">
+            <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+               
+               <div>
+                        <a href="/" className="text-white no-underline hover:text-gray-300 hover:no-underline">
+                            Logo
+                        </a>
+                    </div>
+               
+                <div className="flex justify-between items-center">
+                    
+                    <div className="">
+                        <button onClick={toggleDropdown} className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white focus:outline-none focus:text-white focus:border-white">
+                            Menu
+                        </button>
+                        <div className={`absolute mt-2 w-48 py-2 bg-white border border-gray-200 rounded-md shadow-xl  ${showDropdown ? '' : 'hidden'}`}>
+                            {localStorage.getItem("pitty_token") !== null ? (
+                                <>
+                                    <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/myadoptions">My Adoptions</NavLink>
+                                    <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/">Home</NavLink>
+                                    <button className="block w-full px-4 py-2 text-sm text-red-500 hover:bg-red-100" onClick={() => {
+                                        localStorage.removeItem("pitty_token");
+                                        navigate('/login');
+                                    }}>
+                                        Logout
+                                    </button>
+                                </>
+                            ) : (
+                                <>
+                                    <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/login">Login</NavLink>
+                                    <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/register">Register</NavLink>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
+};
