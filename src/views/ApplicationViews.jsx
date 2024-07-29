@@ -8,6 +8,7 @@ import { DogDetails } from '../components/DogDetails.jsx'
 import { AdoptionApplicationForm } from '../components/ApplicationForm.jsx'
 import { MyAdoptions } from '../components/MyAdoptions.jsx'
 import { ApplicationReview } from '../components/ApplicationReview.jsx'
+import Calender from '../components/Calender.jsx'
 
 
 export const ApplicationViews = () => {
@@ -30,6 +31,7 @@ export const ApplicationViews = () => {
                 <Route path='application/:dogId' element={<AdoptionApplicationForm/>}/>
                 <Route path='myadoptions' element={<MyAdoptions currentUser={currentUser}/>}/>
                 <Route path='applicationreview/:id' element={<ApplicationReview currentUser={currentUser}/>}/>
+                <Route path ='events' element ={<Calender/>}/>
 
                 <Route/>
                 

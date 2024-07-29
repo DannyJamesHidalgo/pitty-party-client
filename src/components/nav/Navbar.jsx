@@ -30,6 +30,7 @@ export const NavBar = () => {
                                 <>
                                     <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/myadoptions">My Adoptions</NavLink>
                                     <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/">Home</NavLink>
+                                    <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/events">Events</NavLink>
                                     <button className="block w-full px-4 py-2 text-sm text-red-500 hover:bg-red-100" onClick={() => {
                                         localStorage.removeItem("pitty_token");
                                         navigate('/login');
