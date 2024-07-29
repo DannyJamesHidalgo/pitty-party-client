@@ -1,4 +1,4 @@
-import { Menu, MenuItem, Transition, MenuItems} from '@headlessui/react'
+import { Menu, MenuItem, Transition, MenuItems, MenuButton} from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import {
@@ -247,10 +247,10 @@ function Meeting({ meeting }) {
         className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100"
       >
         <div>
-          <Menu.Button className="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600">
+          <MenuButton className="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600">
             <span className="sr-only">Open options</span>
             <DotsVerticalIcon className="w-6 h-6" aria-hidden="true" />
-          </Menu.Button>
+          </MenuButton>
         </div>
 
         <Transition

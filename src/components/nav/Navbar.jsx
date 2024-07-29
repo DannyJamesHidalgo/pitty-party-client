@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
+import { FaRectangleList } from "react-icons/fa6";
+import Logo from './Logo.jsx';
+import { HiMenu } from "react-icons/hi";
+
 
 export const NavBar = () => {
     const navigate = useNavigate();
@@ -15,7 +19,7 @@ export const NavBar = () => {
                
                <div>
                         <a href="/" className="text-white no-underline hover:text-gray-300 hover:no-underline">
-                            Logo
+                            {<Logo/>}
                         </a>
                     </div>
                
@@ -23,7 +27,7 @@ export const NavBar = () => {
                     
                     <div className="">
                         <button onClick={toggleDropdown} className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white focus:outline-none focus:text-white focus:border-white">
-                            Menu
+                            <span className="text-lg">{<HiMenu/>}</span>
                         </button>
                         <div className={`absolute mt-2 w-48 py-2 bg-white border border-gray-200 rounded-md shadow-xl  ${showDropdown ? '' : 'hidden'}`}>
                             {localStorage.getItem("pitty_token") !== null ? (
