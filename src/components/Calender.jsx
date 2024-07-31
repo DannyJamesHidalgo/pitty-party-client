@@ -65,6 +65,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 export default function Calender() {
   let [meetings, setMeetings] = useState([])
 
@@ -87,6 +88,7 @@ export default function Calender() {
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
+  
 
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
@@ -106,7 +108,8 @@ export default function Calender() {
   let selectedDayMeetings = meetings.filter((meeting) =>
     isSameDay(parseISO(meeting.startDatetime), selectedDay)
   )
-
+  
+  const [showRSVPModal, setShowRSVPModal] = useState(false);
 
 
 
@@ -215,6 +218,23 @@ export default function Calender() {
           </section>
         </div>
       </div>
+      {showRSVPModal && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-4 rounded shadow-lg">
+            <h2 className="text-lg font-semibold mb-2">RSVP Form</h2>
+            {/* Your RSVP form goes here */}
+            <form>
+              {/* Example input field */}
+              <input type="text" placeholder="Name" className="border p-2 mb-2" required />
+              {/* Add more fields as necessary */}
+              <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                Submit
+              </button>
+            </form>
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -222,6 +242,11 @@ export default function Calender() {
 function Meeting({ meeting }) {
   let startDateTime = parseISO(meeting.startDatetime)
   let endDateTime = parseISO(meeting.endDatetime)
+  const [showRSVPModal, setShowRSVPModal] = useState(false);
+  
+  const handleRSVPClick = () => {
+    setShowRSVPModal(true);
+  };
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
@@ -267,26 +292,26 @@ function Meeting({ meeting }) {
               <MenuItem>
                 {({ active }) => (
                   <a
-                    href="#"
+                    href="#" onClick={handleRSVPClick()}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Edit
+                    RSVP
                   </a>
                 )}
               </MenuItem>
               <MenuItem>
                 {({ active }) => (
-                  <a
+                  <a 
                     href="#"
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Cancel
+                    More info
                   </a>
                 )}
               </MenuItem>

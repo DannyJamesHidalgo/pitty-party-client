@@ -20,7 +20,7 @@ export const DogDetails =()=>{
     if (!dog) return <div>Loading...</div>; // Show loading state until dog details are fetched
 
     return (
-        <div className='flex justify-center items-center min-h-screen bg-gray-100'>
+        <div className='flex justify-center items-center min-h-screen rounded-full bg-blue-300'>
             <div className='w-3/4 max-w-6xl mx-auto my-16 p-10 rounded-lg shadow-xl bg-white overflow-hidden h-auto'> {/* Adjusted classes here */}
                 <img className='w-full h-auto object-cover' src={dog.image_url || 'default_image_url'} alt={dog.name} /> {/* Adjusted image size */}
                 <div className='px-10 py-8'>

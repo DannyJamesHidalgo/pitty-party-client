@@ -29,44 +29,31 @@ export const MyAdoptions=({currentUser})=>{
 
   },[currentUser])
 
-//    const fetchTheDogs =(currentUser)=>{getAllApplicationsByAdopterId(parseInt(currentUser.id)).then(dogsArray =>{
-//     setDogs(dogsArray)
-// })}
-    
-    
-    
-    // useEffect(() => {
-    //     getAllApplicationsByAdopterId(parseInt(currentUser.id)).then(dogsArray =>{
-    //         setDogs(dogsArray)
-    //     })
-        
-    // }, [currentUser]);
-    
-    
-    
-    
-    
-    return (
-        <main className='bg-gray-100 min-h-screen flex items-center justify-center'>
-            <div className='grid grid-cols-4 gap-6'>
-                {applications?.map((application, index) => (
-                    <div key={application.id} className='max-w-sm rounded overflow-hidden shadow-lg bg-white'>
-                        <img className='w-full h-48 object-cover' src={application.dog?.image_url || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8apkf3HyDCU2zv3nUr0DibTcZ04eHRKOcurGB6y9l-2adXYbDdQegc2ORW_PFq76sUiw&usqp=CAU"} alt={`Dog ${index + 1}`} />
-                        <div className='px-6 py-4'>
-                            <div className='font-bold text-xl mb-2'>{application.dog?.name}</div>
-                            
-                        </div>
-                        <div className='px-6 pt-4 pb-2'>
-                            {/* Example action button */}
-                            
-                            <button onClick={()=>navigate(`/applicationreview/${application.id}`)}  className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition duration-150 ease-in-out transform hover:scale-110">
-                                View Application
-                            </button>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </main>
-    );
-  }
 
+    
+    
+    
+    
+    
+  return (
+    <main className='bg-gray-100 min-h-screen flex items-center justify-center p-8'>
+        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-7xl mx-auto'>
+            {applications.map((application, index) => (
+                <div key={application.id} className='max-w-sm rounded-lg overflow-hidden shadow-lg bg-white p-6'>
+                    <img className='w-full h-48 object-cover' src={application.dog?.image_url || "https://via.placeholder.com/150"} alt={`Dog ${index + 1}`} />
+                    <div className='mt-4'>
+                        <div className='font-bold text-xl mb-2'>{application.dog?.name}</div>
+                        <p className='text-gray-700'>Age: {application.dog?.age}</p>
+                        <p className='text-gray-700'>Breed: {application.dog?.breed}</p>
+                    </div>
+                    <div className='mt-4'>
+                        <button onClick={() => navigate(`/applicationreview/${application.id}`)} className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition duration-150 ease-in-out transform hover:scale-105">
+                            View Application
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </main>
+);
+}
