@@ -3,32 +3,28 @@ import { getallDogs } from "../services/dog.js";
 import { useNavigate } from 'react-router-dom';
 import { getAllApplicationsByAdopterId } from "../services/application.js";
 
-export const MyAdoptions=({currentUser})=>{
+export const MyAdoptions=()=>{
     const [applications, setApplications] = useState([]);
     const navigate = useNavigate(); 
 
     
-// const [currentUser, setCurrentUser] = useState({})
+
   
   
-//   useEffect(() => {
-//     const localUser = localStorage.getItem("pitty_token")
-//     const UserObject = JSON.parse(localUser)
-//     // debugger
-//     setCurrentUser(UserObject)
-//     // fetchTheDogs(currentUser)
+  useEffect(() => {
+    const localUser = localStorage.getItem("pitty_token")
+    const currentUser = JSON.parse(localUser)
+    // debugger
     
+    // fetchTheDogs(currentUser)
+   
+    getAllApplicationsByAdopterId(currentUser.id).then(dogsArray => setApplications(dogsArray))
+  
             
-//   }, [])
+  }, [])
     
 
-  useEffect(()=>{
-    getAllApplicationsByAdopterId(currentUser.id).then(dogsArray =>{
-        setApplications(dogsArray)
-    })
-
-  },[currentUser])
-
+  
 
     
     
@@ -43,8 +39,8 @@ export const MyAdoptions=({currentUser})=>{
                     <img className='w-full h-48 object-cover' src={application.dog?.image_url || "https://via.placeholder.com/150"} alt={`Dog ${index + 1}`} />
                     <div className='mt-4'>
                         <div className='font-bold text-xl mb-2'>{application.dog?.name}</div>
-                        <p className='text-gray-700'>Age: {application.dog?.age}</p>
-                        <p className='text-gray-700'>Breed: {application.dog?.breed}</p>
+                    
+                      
                     </div>
                     <div className='mt-4'>
                         <button onClick={() => navigate(`/applicationreview/${application.id}`)} className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition duration-150 ease-in-out transform hover:scale-105">

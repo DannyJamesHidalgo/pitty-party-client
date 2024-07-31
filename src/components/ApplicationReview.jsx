@@ -41,12 +41,14 @@ useEffect(()=>{getApplicationById(parseInt(id)).then(setFormData)},[id])
 
     updateApplicationById(id,reqBody)
     navigate(`/myadoptions`)
+    setRenderTrigger(!renderTrigger);
 }
 
 const handleDelete =()=>{
 
     deleteApplicationById(id)
     navigate(`/myadoptions`)
+    setRenderTrigger(!renderTrigger);
 
 }
 
@@ -62,7 +64,7 @@ const handleDelete =()=>{
                   <input type="email" value={formData.email} name="email" onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-600" required />
                   <input type="tel" value={formData.phone_number} name="phone_number" onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-600" required />
                   <textarea value={formData.adoption_pitch} name="adoption_pitch" onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-600 resize-none" rows="4" required></textarea>
-                  <button type="submit" className="w-full py-2 mt-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200">Submit Application</button>
+                  <button type="submit" className="w-full py-2 mt-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200">Save Changes</button>
                   <button type="delete" onClick={handleDelete} className="w-full py-2 mt-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200">Delete</button>
               </div>
           </form>
