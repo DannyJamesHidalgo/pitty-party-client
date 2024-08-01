@@ -8,7 +8,7 @@ import { DogDetails } from '../components/DogDetails.jsx'
 import { AdoptionApplicationForm } from '../components/ApplicationForm.jsx'
 import { MyAdoptions } from '../components/MyAdoptions.jsx'
 import { ApplicationReview } from '../components/ApplicationReview.jsx'
-import Calender from '../components/Calender.jsx'
+import Calender from '../components/Cal/Calender.jsx'
 import AllDogs from '../components/AllDogs.jsx'
 
 

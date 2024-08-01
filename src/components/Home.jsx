@@ -21,18 +21,17 @@ function Home() {
     return (
         <main className='bg-gray-500 min-h-screen'>
             
-        <div class="bg-center  bg-no-repeat bg-[url('https://c8.alamy.com/comp/2WTYPDR/different-dogs-isolated-on-a-white-background-endless-texture-seamless-pattern-design-for-fabric-decor-wallpaper-wrapping-paper-printing-2WTYPDR.jpg')] bg-gray-500 bg-blend-multiply" >
+        <div class="bg-center  bg-repeat bg-[url('https://c8.alamy.com/comp/2WTYPDR/different-dogs-isolated-on-a-white-background-endless-texture-seamless-pattern-design-for-fabric-decor-wallpaper-wrapping-paper-printing-2WTYPDR.jpg')] bg-gray-500 bg-blend-multiply" >
             <section  className='text-center p-8'>
 
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Soft eyes, big smiles, loyal hearts.</h1>
-                <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-300">Open your heart, save a life: Adopt a pit bull today. These loyal, loving dogs deserve a second chance. Be the hero they're waiting for</p>
-                <h2  className="dark:text-white">New arivials bellow!</h2>
+                <h1 class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-300">Open your heart, save a life: Adopt a pit bull today. These loyal, loving dogs deserve a second chance. Be the hero they're waiting for</h1>
+                <h2  className="text-2xl font-bold dark:text-white">New rescues bellow!</h2>
             </section>
 
             <section className='flex justify-center gap-6 p-8'>
-                {dogs.slice(0, 3).map((dog, index) => (
-                    <div key={dog.id} className='max-w-sm rounded-lg overflow-hidden shadow-lg bg-blue-100'>
-                        <img className='w-full h-48 object-cover' src={dog.image_url || "default_image_url"} alt={`Dog ${index + 1}`} />
+                {dogs.slice(0, 4).map((dog, index) => (
+                    <div key={dog.id} className='max-w-lg rounded-lg overflow-hidden shadow-lg bg-blue-200'>
+                        <img className='w-48 h-48  object-cover' src={dog.image_url || "default_image_url"} alt={`Dog ${index + 1}`} />
                         <div className='px-3 py-3'>
                             <div className='font-bold text-xl mb-2 text-center'>{dog.name}</div>
                             
@@ -53,7 +52,7 @@ function Home() {
                 <button onClick={() => navigate(`/AllDogs`)}className="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Adopt Now</button>
             </section>
 
-            {/* About Us Section */}
+            
             <section className='text-center p-8 bg-green-100'>
                 <h2 className='text-3xl font-semibold'>About Us</h2>
                <div className=" w-1/2 m-auto">
