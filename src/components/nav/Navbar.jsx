@@ -22,7 +22,7 @@ export const NavBar = () => {
                             {<Logo/>}
                         </a>
                     </div>
-               
+                    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Soft eyes, big smiles, loyal hearts.</h1>
                 <div className="flex justify-between items-center">
                     
                     <div className="">
@@ -35,6 +35,7 @@ export const NavBar = () => {
                                     <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/myadoptions">My Adoptions</NavLink>
                                     <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/">Home</NavLink>
                                     <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/events">Events</NavLink>
+                                    <NavLink className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" to="/AllDogs">All Dogs</NavLink>
                                     <button className="block w-full px-4 py-2 text-sm text-red-500 hover:bg-red-100" onClick={() => {
                                         localStorage.removeItem("pitty_token");
                                         navigate('/login');

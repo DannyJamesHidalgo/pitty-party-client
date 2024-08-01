@@ -8,7 +8,7 @@ import { DogDetails } from '../components/DogDetails.jsx'
 import { AdoptionApplicationForm } from '../components/ApplicationForm.jsx'
 import { MyAdoptions } from '../components/MyAdoptions.jsx'
 import { ApplicationReview } from '../components/ApplicationReview.jsx'
-import Calender from '../components/Calender.jsx'
+import Calender from '../components/Cal/Calender.jsx'
 import AllDogs from '../components/AllDogs.jsx'
 
 
@@ -29,9 +29,9 @@ export const ApplicationViews = () => {
                 <Route path="/">
                 <Route index element={<Home />}/>
                 <Route path='dogs/:id' element={<DogDetails />}/>
-                <Route path='application/:dogId' element={<AdoptionApplicationForm/>}/>
+                <Route path='application/:dogId' element={<AdoptionApplicationForm />}/>
                 <Route path='myadoptions' element={<MyAdoptions currentUser={currentUser}/>}/>
-                <Route path='applicationreview/:id' element={<ApplicationReview currentUser={currentUser}/>}/>
+                <Route path='applicationreview/:id' element={<ApplicationReview currentUser={currentUser} />}/>
                 <Route path ='events' element ={<Calender/>}/>
                 <Route path ='AllDogs' element={<AllDogs/>}/>
 
