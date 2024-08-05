@@ -5,13 +5,17 @@
 
 
 
-export const Rsvp =()=>{
+export const Rsvp =({handleRSVPClick})=>{
 
 
 
 
     return (
 <div className="max-w-lg">
+
+
+<h5 class="text-xl font-bold dark text-center">Please fill   out the RSVP form bellow! </h5>
+
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
@@ -35,7 +39,7 @@ export const Rsvp =()=>{
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
               Submit
     </button>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleRSVPClick}>Cancel</button>
   </div>
 </form>
 </div>

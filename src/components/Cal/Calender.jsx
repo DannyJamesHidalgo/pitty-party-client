@@ -76,7 +76,7 @@ export default function Calender() {
 
   return (
     
-    <div className="pt-25">
+    <div className="pt-25 bg-gray-100  ">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
 
 <h1><span class="bg-blue-100 text-blue-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">EVENTS</span></h1>
@@ -183,8 +183,10 @@ export default function Calender() {
             </ol>
           </section>
         </div>
+           <div className='p-20'>{showRSVPModal && (<Rsvp handleRSVPClick={handleRSVPClick}/>)}</div>
+
+     
       </div>
-      <div>{showRSVPModal && (<Rsvp/>)}</div>
       
     </div>
   )
