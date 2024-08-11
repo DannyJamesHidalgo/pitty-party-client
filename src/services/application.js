@@ -2,7 +2,7 @@ export const postNewApplication = async (applicationData) => {
     try {
       
   
-      const response = await fetch("http://localhost:8000/applications", {
+      const response = await fetch("https://pitty-app-nb9rf.ondigitalocean.app/applications", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export const postNewApplication = async (applicationData) => {
 
 
 export const getAllApplicationsByAdopterId = (adopter_id) => {
-  return fetch(`http://localhost:8000/applications?adopter_id=${adopter_id}`, {
+  return fetch(`https://pitty-app-nb9rf.ondigitalocean.app/applications?adopter_id=${adopter_id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`,
@@ -38,7 +38,7 @@ export const getAllApplicationsByAdopterId = (adopter_id) => {
 
 
 export const getApplicationById =(App_id)=>{
-  return fetch(`http://localhost:8000/applications/${App_id}`, {
+  return fetch(`https://pitty-app-nb9rf.ondigitalocean.app/applications/${App_id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`,
@@ -49,7 +49,7 @@ export const getApplicationById =(App_id)=>{
 
 
 export const updateApplicationById = (app_id,requestBody)=>{
-  return fetch(`http://localhost:8000/applications/${app_id}`, {
+  return fetch(`https://pitty-app-nb9rf.ondigitalocean.app/applications/${app_id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ export const updateApplicationById = (app_id,requestBody)=>{
 
 
 export const deleteApplicationById = (appId) => {
-  return fetch(`http://localhost:8000/applications/${appId}`, {
+  return fetch(`https://pitty-app-nb9rf.ondigitalocean.app/applications/${appId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
