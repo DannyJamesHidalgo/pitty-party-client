@@ -12,7 +12,7 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:8000/login`, {
+        fetch(`https://pitty-app-nb9rf.ondigitalocean.app/login`, {
             method: "POST",
             body: JSON.stringify({ username, password }),
             headers: {

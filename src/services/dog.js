@@ -1,5 +1,5 @@
 export const getallDogs=()=>{
-    return fetch("http://localhost:8000/dogs",
+    return fetch("https://pitty-app-nb9rf.ondigitalocean.app/dogs",
         {
             headers: {
                 Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`
@@ -10,7 +10,7 @@ export const getallDogs=()=>{
 }
 
 export const getDogById=(dogId)=>{
-    return fetch(`http://localhost:8000/dogs/${dogId}`,
+    return fetch(`https://pitty-app-nb9rf.ondigitalocean.app/dogs/${dogId}`,
         {
             headers: {
                 Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`
