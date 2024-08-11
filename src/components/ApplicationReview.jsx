@@ -41,14 +41,14 @@ useEffect(()=>{getApplicationById(parseInt(id)).then(setFormData)},[id])
 
     updateApplicationById(id,reqBody)
     navigate(`/myadoptions`)
-    setRenderTrigger(!renderTrigger);
+   
 }
 
 const handleDelete =()=>{
 
     deleteApplicationById(id)
     navigate(`/myadoptions`)
-    setRenderTrigger(!renderTrigger);
+  
 
 }
 

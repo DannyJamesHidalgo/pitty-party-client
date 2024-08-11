@@ -11,17 +11,21 @@ export const MyAdoptions=()=>{
 
   
   
-  useEffect(() => {
-    const localUser = localStorage.getItem("pitty_token")
-    const currentUser = JSON.parse(localUser)
-    // debugger
-    
-    // fetchTheDogs(currentUser)
-   
-    getAllApplicationsByAdopterId(currentUser.id).then(dogsArray => setApplications(dogsArray))
-  
-            
-  }, [])
+    useEffect(() => {
+        const localUser = localStorage.getItem("pitty_token");
+        const currentUser = JSON.parse(localUser);
+      
+        const fetchAndSetApplications = async () => {
+          try {
+            const dogsArray = await getAllApplicationsByAdopterId(currentUser.id);
+            setApplications(dogsArray);
+          } catch (error) {
+            console.error("Failed to fetch applications:", error);
+          }
+        };
+      
+        fetchAndSetApplications();
+      }, []);
     
 
   
