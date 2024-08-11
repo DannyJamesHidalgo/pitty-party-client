@@ -15,7 +15,7 @@ export const Register = () => {
         fetch(`https://pitty-app-nb9rf.ondigitalocean.app/register`, {
             method: "POST",
             body: JSON.stringify({
-                email,
+                username:email,
                 password,
                 first_name: firstName,
                 last_name: lastName
