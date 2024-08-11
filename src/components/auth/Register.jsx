@@ -16,6 +16,7 @@ export const Register = () => {
             method: "POST",
             body: JSON.stringify({
                 username:email,
+                email:email,
                 password,
                 first_name: firstName,
                 last_name: lastName
