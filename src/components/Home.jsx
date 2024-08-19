@@ -21,30 +21,24 @@ function Home() {
     return (
         <main className='bg-gray-500 min-h-screen'>
             
-        <div class="bg-center  bg-repeat bg-[url('https://c8.alamy.com/comp/2WTYPDR/different-dogs-isolated-on-a-white-background-endless-texture-seamless-pattern-design-for-fabric-decor-wallpaper-wrapping-paper-printing-2WTYPDR.jpg')] bg-gray-500 bg-blend-multiply" >
+        <div class="bg-center bg-repeat bg-[url('https://c8.alamy.com/comp/2WTYPDR/different-dogs-isolated-on-a-white-background-endless-texture-seamless-pattern-design-for-fabric-decor-wallpaper-wrapping-paper-printing-2WTYPDR.jpg')" >
             <section  className='text-center p-8'>
 
                 <h1 class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-300">Open your heart, save a life: Adopt a pit bull today. These loyal, loving dogs deserve a second chance. Be the hero they're waiting for</h1>
                 <h2  className="text-2xl font-bold dark:text-white">New rescues bellow!</h2>
             </section>
-
-            <section className='flex justify-center gap-6 p-8'>
-                {dogs.slice(0, 4).map((dog, index) => (
-                    <div key={dog.id} className='max-w-lg rounded-lg overflow-hidden shadow-lg bg-blue-200'>
-                        <img className='w-48 h-48  object-cover' src={dog.image_url || "default_image_url"} alt={`Dog ${index + 1}`} />
-                        <div className='px-3 py-3'>
-                            <div className='font-bold text-xl mb-2 text-center'>{dog.name}</div>
-                            
-                            
-                        </div>
-                        <div className='px-6 pt-4 pb-2'>
-                            <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => navigate(`/dogs/${dog.id}`)}>
-                                Learn More
-                            </button>
-                        </div>
-                    </div>
+            <div className="mx-auto flex items-center justify-center">
+                <section className='flex flex-wrap justify-center gap-6 p-8'>
+                 {dogs.slice(0, 4).map((dog) => (
+                    
+                  <figure key={dog.id} className=" w-80 h-80 mx-auto  transition-all duration-300 cursor-pointer hover:scale-110   bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden relative">
+                  <a href="#">
+                   <img onClick={() => navigate(`/dogs/${dog.id}`)} className="w-full h-full object-cover object-center" src={dog.image_url} alt=""  />
+                  </a>
+                </figure>
                 ))}
-            </section>
+                </section>
+            </div>
         </div>
             <section className='text-center p-8 bg-gray-200'>
                 <h2 className='text-3xl font-semibold'>Take Action Today</h2>

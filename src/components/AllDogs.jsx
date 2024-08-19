@@ -29,14 +29,14 @@ function AllDogs() {
             </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-4'>
                 {dogs.map((dog) => (
-                  <figure key={dog.id} className=" w-80 h-80 mx-auto  transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden relative">
+                  <figure key={dog.id} className=" w-80 h-80 mx-auto  transition-all duration-300 cursor-pointer hover:scale-95  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden relative">
                     <a href="#">
                      <img onClick={() => navigate(`/dogs/${dog.id}`)} className="w-full h-full object-cover object-center" src={dog.image_url} alt=""  />
                     </a>
                   </figure>
             
                 ))}
-            </div>
+                </div>
             </div>
             
  

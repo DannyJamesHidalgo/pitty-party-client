@@ -44,10 +44,18 @@ useEffect(()=>{getApplicationById(parseInt(id)).then(setFormData)},[id])
    
 }
 
-const handleDelete =()=>{
+const handleDelete = async () => {
 
-    deleteApplicationById(id)
-    navigate(`/myadoptions`)
+    const isConfirmed = window.confirm("Are you sure you want to cancel the application? This action cannot be undone.");
+    if (isConfirmed) {
+        try {
+            await deleteApplicationById(id);
+            navigate(`/myadoptions`);
+        } catch (error) {
+            console.error("Failed to delete application:", error);
+            // Optionally, handle the error, maybe show a notification or keep the user on the page
+        }
+};
   
 
 }
@@ -56,10 +64,13 @@ const handleDelete =()=>{
   
   return (
  <div className='flex justify-center items-center min-h-screen bg-gray-100'>
-          <form onSubmit={handleUpdate} className='w-full max-w-4xl mx-auto my-16 p-10 rounded-lg shadow-xl bg-white overflow-hidden space-y-8'>
-              <h2 className="text-3xl font-bold text-center py-4">Review Application</h2>
+
+
+          <form onSubmit={handleUpdate} className='  justify-center w-full max-w-4xl mx-auto my-16 p-10 rounded-lg shadow-xl bg-white overflow-hidden space-y-8'>
+          <img src={formData.dog?.image_url}  className="w-80 h-80 m-auto object-cover" />
+              <h2 className="text-3xl font-bold text-center py-4">Review Application for {formData.dog?.name}!</h2>
               <div className="space-y-4">
-                <h3>make changes as needed!</h3>
+                <h3 className='text-center'> please make any changes as needed or if you would like to cancel the the application click cancel below</h3>
                   <input type="text" value={formData.name} name="name" onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-600" required />
                   <input type="email" value={formData.email} name="email" onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-600" required />
                   <input type="tel" value={formData.phone_number} name="phone_number" onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-600" required />
