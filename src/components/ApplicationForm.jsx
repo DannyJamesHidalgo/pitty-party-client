@@ -28,6 +28,8 @@ export  const AdoptionApplicationForm = () =>{
     const UserObject = JSON.parse(localUser)
     // debugger
     setCurrentUser(UserObject)
+  console.log(UserObject)
+    getAdopterById(UserObject.id).then(setAdopter)
    
   }, [])
 
@@ -35,9 +37,7 @@ export  const AdoptionApplicationForm = () =>{
 
     let id = parseInt(dogId);
     getDogById(id).then(setDogObject)
-    // let adopterId = parseInt(currentUser.id)
 
-    getAdopterById(currentUser.id).then(setAdopter)
   },[dogId])
  
 
