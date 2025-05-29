@@ -1,6 +1,6 @@
 export const getAdopterById = async (App_id) => {
     try {
-      const response = await fetch(`https://pitty-app-nb9rf.ondigitalocean.app/adopters/${App_id}`, {
+      const response = await fetch(`https://pitty-party-api.vercel.app/adopters/${App_id}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`,

@@ -12,7 +12,7 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        fetch(`https://pitty-app-nb9rf.ondigitalocean.app/login`, {
+        fetch(`https://pitty-party-api.vercel.app/login`, {
             method: "POST",
             body: JSON.stringify({ username, password }),
             headers: {
