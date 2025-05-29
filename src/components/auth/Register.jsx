@@ -12,7 +12,7 @@ export const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        fetch(`https://pitty-app-nb9rf.ondigitalocean.app/register`, {
+        fetch(`https://pitty-party-api.vercel.app/register`, {
             method: "POST",
             body: JSON.stringify({
                 username:email,
