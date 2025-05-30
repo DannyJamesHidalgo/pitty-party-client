@@ -12,7 +12,7 @@ export const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        fetch(`https://pitty-party-api.vercel.app/register`, {
+        fetch(`https://lobster-app-bbl8x.ondigitalocean.app/register`, {
             method: "POST",
             body: JSON.stringify({
                 username:email,
