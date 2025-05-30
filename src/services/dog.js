@@ -1,5 +1,5 @@
 export const getallDogs=()=>{
-    return fetch("https://pitty-party-api.vercel.app/dogs",
+    return fetch("https://lobster-app-bbl8x.ondigitalocean.app/dogs",
         {
             headers: {
                 Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`
@@ -10,7 +10,7 @@ export const getallDogs=()=>{
 }
 
 export const getDogById=(dogId)=>{
-    return fetch(`https://pitty-party-api.vercel.app/dogs/${dogId}`,
+    return fetch(`https://lobster-app-bbl8x.ondigitalocean.app/dogs/${dogId}`,
         {
             headers: {
                 Authorization: `Token ${JSON.parse(localStorage.getItem("pitty_token")).token}`
